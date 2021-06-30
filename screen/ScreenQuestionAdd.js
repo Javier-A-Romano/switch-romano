@@ -2,13 +2,12 @@ import React, { useState } from 'react'
 import { Button, Text, View } from 'react-native'
 import { InputAdd } from '../components/InputAdd'
 
-export const ScreenQuestionAdd = () => {
+export const ScreenQuestionAdd = ({ setScreenNum, setItemList }) => {
     const [theme, setTheme] = useState();
     const [question, setQuestion] = useState();
     const [option1, setOption1] = useState();
     const [option2, setOption2] = useState();
     const [option3, setOption3] = useState();
-    const [itemlist, setItemList] = useState([]);
 
     const onHandlerChangeTheme = (t) => setTheme(t);
     const onHandlerChangeQuestion = (t) => setQuestion(t);
@@ -18,8 +17,6 @@ export const ScreenQuestionAdd = () => {
 
     const add = () => {
 
-        console.log(itemlist);
-        console.log("hola");
 
 
         if (theme.length >= 5 && question.length >= 5 && option1.length >= 5 && option2.length >= 5 && option3.length >= 5) {
@@ -41,9 +38,14 @@ export const ScreenQuestionAdd = () => {
 
         }
 
-        console.log(itemlist);
     }
+    const next = () => {
 
+
+        setScreenNum(2);
+
+
+    }
     return (
         <View>
             <InputAdd stateLocal={theme} pholder={"tema a mostrar"} onHandlerChange={onHandlerChangeTheme} />
@@ -52,7 +54,9 @@ export const ScreenQuestionAdd = () => {
             <InputAdd stateLocal={option2} pholder={"tema a mostrar"} onHandlerChange={onHandlerChangeOption2} />
             <InputAdd stateLocal={option3} pholder={"tema a mostrar"} onHandlerChange={onHandlerChangeOption3} />
 
-            <Button onPress={add} title="shorlak" />
+            <Button onPress={add} title="Agregar" />
+            <Button onPress={next} title="modo alumno" />
+
         </View>
     )
 }

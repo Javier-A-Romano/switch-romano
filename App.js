@@ -1,14 +1,14 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { ScreenLogin } from './screen/ScreenLogin';
-import { ScreenQuestionAdd } from './screen/ScreenQuestionAdd';
+import { ScreenManager } from './screen/ScreenManager';
+
 
 const App = () => {
   return (
     <View>
 
-      <ScreenLogin />
+      <ScreenManager />
 
       <StatusBar style="auto" />
 

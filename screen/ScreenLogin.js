@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Button, View } from 'react-native'
 import { InputAdd } from '../components/InputAdd'
 
-export const ScreenLogin = () => {
+export const ScreenLogin = ({ setScreenNum }) => {
     const [user, setUser] = useState();
 
     const [pass, setPass] = useState();
@@ -14,6 +14,7 @@ export const ScreenLogin = () => {
 
         if (user === "test" && pass === "test") {
             console.log("login ok")
+            setScreenNum(1);
         } else {
             console.log("login error")
             setPass("");
