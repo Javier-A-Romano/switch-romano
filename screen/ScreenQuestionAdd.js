@@ -34,7 +34,10 @@ export const ScreenQuestionAdd = () => {
             setOption2("");
             setOption3("");
         } else {
-            setItemList("");
+            setQuestion("");
+            setOption1("");
+            setOption2("");
+            setOption3("");
 
         }
 
