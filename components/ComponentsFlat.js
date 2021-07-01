@@ -1,7 +1,7 @@
 import React from 'react'
 import { FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 
-export const ComponentsFlat = ({ itemlist }) => {
+export const ComponentsFlat = ({ itemlist, onHandlerModal }) => {
     return (
         <FlatList
             data={itemlist}
@@ -9,10 +9,15 @@ export const ComponentsFlat = ({ itemlist }) => {
                 <View style={styles.textrow}>
 
                     <TouchableOpacity
-                        style={styles.buttonF}
-                        onPress={() => onHandlerModal(data.item.id, "F")}
+                        style={styles.questionS}
+                        onPress={() => onHandlerModal(data.item.id)}
                     >
-                        <Text>{data.item.theme}</Text>
+                        <Text style={styles.text}>{data.item.theme}</Text>
+                        <Text style={styles.text}>{data.item.question1}</Text>
+                        <Text style={styles.text}>{data.item.correct}</Text>
+
+
+
 
                     </TouchableOpacity>
 
@@ -27,7 +32,6 @@ export const ComponentsFlat = ({ itemlist }) => {
 const styles = StyleSheet.create({
 
     textrow: {
-
         marginTop: 5,
         flexDirection: 'row',
         width: 360,
@@ -37,8 +41,10 @@ const styles = StyleSheet.create({
         backgroundColor: "red",
         height: 50,
         flex: 1,
+        fontFamily: 'open-sans'
 
-    }, buttonF: {
+    }, questionS: {
+        flex: 1,
         alignItems: "center",
         justifyContent: "center",
         backgroundColor: "red",

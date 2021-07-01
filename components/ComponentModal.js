@@ -6,29 +6,29 @@ export const ComponentModal = ({ modalVisible, itemSelected, onHandlerDelete }) 
     <Modal animationType="slide" visible={modalVisible} transparent>
       <View style={styles.modalContainer}>
         <View style={[styles.modalContent, styles.shadow]}>
-          <Text style={styles.modalMessage}>Si elegiste bien se borrara de la lista</Text>
-          <Text style={styles.modalTitle}>{itemSelected.value}</Text>
+          <Text style={styles.modalMessage}>{itemSelected.question1}</Text>
+
           <View >
 
             <TouchableOpacity
               style={styles.buttonModal}
-              onPress={()=>console.log("1")}
+              onPress={() => onHandlerDelete(itemSelected.id, "1")}
             >
-              <Text>CONFIRMAR</Text>
+              <Text>{itemSelected.option1}</Text>
 
             </TouchableOpacity>
             <TouchableOpacity
               style={styles.buttonModal}
-              onPress={()=>console.log("2")}
+              onPress={() => onHandlerDelete(itemSelected.id, "2")}
             >
-              <Text>CONFIRMAR</Text>
+              <Text>{itemSelected.option2}</Text>
 
             </TouchableOpacity>
             <TouchableOpacity
               style={styles.buttonModal}
-              onPress={()=>console.log("3")}
+              onPress={() => onHandlerDelete(itemSelected.id, "3")}
             >
-              <Text>CONFIRMAR</Text>
+              <Text>{itemSelected.option3}</Text>
 
             </TouchableOpacity>
           </View>

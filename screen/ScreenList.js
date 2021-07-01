@@ -1,16 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { View } from 'react-native';
 import { ComponentsFlat } from '../components/ComponentsFlat'
+import { ComponentModal } from '../components/ComponentModal'
 
-export const ScreenList = ({ itemlist }) => {
+
+export const ScreenList = ({ itemlist, setItemList }) => {
 
 
     const [modalVisible, setModalVisible] = useState(false);
+    const [itemSelected, setItemSelected] = useState({});
+    const onHandlerDelete = (id, pick) => {
+        console.log(pick);
 
-    const onHandlerDelete = () => {
-        const id = itemSelected.id;
-        const validate = itemSelected.validation;
-        if (vorf === validate) {
+        const validate = itemSelected.correct;
+        if (pick === validate) {
             setItemList(currentItems => currentItems.filter(item => item.id !== id));
+            console.log("hello");
 
             setItemSelected({});
             setModalVisible(!modalVisible);
@@ -21,23 +26,22 @@ export const ScreenList = ({ itemlist }) => {
         }
     }
 
-    const onHandlerModal = (id, optionVorF) => {
-        setItemSelected(itemList.filter(item => item.id === id)[0]);
+    const onHandlerModal = (id) => {
+        setItemSelected(itemlist.filter(item => item.id === id)[0]);
         setModalVisible(!modalVisible);
-        setVorf(optionVorF);
     }
     return (
         <View>
 
-        <ComponentsFlat itemlist={itemlist} onHandlerModal={onHandlerModal}/>
+            <ComponentsFlat itemlist={itemlist} onHandlerModal={onHandlerModal} setModalVisible={setModalVisible} />
 
-        <ComponentModal
-         modalVisible={modalVisible}
-            itemSelected={ itemSelected }
-             onHandlerDelete={    onHandlerDelete   }
-          
-          
-          />
+            <ComponentModal
+                modalVisible={modalVisible}
+                itemSelected={itemSelected}
+                onHandlerDelete={onHandlerDelete}
+
+
+            />
         </View>
     )
 }
