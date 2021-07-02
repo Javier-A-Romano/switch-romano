@@ -1,5 +1,6 @@
 import React from 'react'
 import { StyleSheet, TextInput, View } from 'react-native'
+import colors from '../constant/colors';
 
 export const InputAdd = ({ onHandlerChange, stateLocal, pholder }) => {
     return (
@@ -19,14 +20,19 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         paddingVertical: 5,
         paddingHorizontal: 5,
-        marginTop: 30,
+        marginTop: 20,
         flexDirection: 'row',
 
 
     },
     input: {
-        flex: 1,
-        backgroundColor: "red",
-        height: 50,
+
+        backgroundColor: colors.cian,
+        height: 60,
+        width: 340,
+        borderColor: colors.white,
+        borderWidth: 1,
+
+
     },
 });

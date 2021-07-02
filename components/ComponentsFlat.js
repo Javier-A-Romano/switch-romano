@@ -1,5 +1,6 @@
 import React from 'react'
 import { FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import colors from '../constant/colors';
 
 export const ComponentsFlat = ({ itemlist, onHandlerModal }) => {
     return (
@@ -12,9 +13,8 @@ export const ComponentsFlat = ({ itemlist, onHandlerModal }) => {
                         style={styles.questionS}
                         onPress={() => onHandlerModal(data.item.id)}
                     >
-                        <Text style={styles.text}>{data.item.theme}</Text>
-                        <Text style={styles.text}>{data.item.question1}</Text>
-                        <Text style={styles.text}>{data.item.correct}</Text>
+                        <Text style={styles.text}>Tema: {data.item.theme}</Text>
+                        <Text style={styles.text}> {data.item.question1}</Text>
 
 
 
@@ -38,24 +38,20 @@ const styles = StyleSheet.create({
 
 
     }, text: {
-        backgroundColor: "red",
+        color: colors.white,
         height: 50,
         flex: 1,
-        fontFamily: 'open-sans'
+        fontFamily: 'open-sans',
+        fontSize: 15,
 
     }, questionS: {
         flex: 1,
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: "red",
+        backgroundColor: colors.blue,
         width: 45,
-    },
-    buttonV: {
-        alignItems: "center",
-        justifyContent: "center",
-        width: 45,
-        backgroundColor: "red",
 
     },
+
 
 });

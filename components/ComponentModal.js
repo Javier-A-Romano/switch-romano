@@ -1,5 +1,6 @@
 import React from 'react'
 import { Modal, StyleSheet, TouchableOpacity, Text, View } from 'react-native';
+import colors from '../constant/colors';
 
 export const ComponentModal = ({ modalVisible, itemSelected, onHandlerDelete }) => {
   return (
@@ -14,21 +15,21 @@ export const ComponentModal = ({ modalVisible, itemSelected, onHandlerDelete }) 
               style={styles.buttonModal}
               onPress={() => onHandlerDelete(itemSelected.id, "1")}
             >
-              <Text>{itemSelected.option1}</Text>
+              <Text style={styles.textModal}>{itemSelected.option1}</Text>
 
             </TouchableOpacity>
             <TouchableOpacity
               style={styles.buttonModal}
               onPress={() => onHandlerDelete(itemSelected.id, "2")}
             >
-              <Text>{itemSelected.option2}</Text>
+              <Text style={styles.textModal} >{itemSelected.option2}</Text>
 
             </TouchableOpacity>
             <TouchableOpacity
               style={styles.buttonModal}
               onPress={() => onHandlerDelete(itemSelected.id, "3")}
             >
-              <Text>{itemSelected.option3}</Text>
+              <Text style={styles.textModal} >{itemSelected.option3}</Text>
 
             </TouchableOpacity>
           </View>
@@ -46,19 +47,21 @@ const styles = StyleSheet.create({
   },
   modalContent: {
     padding: 30,
-    backgroundColor: "blue",
+    backgroundColor: colors.blue,
     alignSelf: 'center',
     alignItems: 'center',
     justifyContent: 'center',
     borderWidth: 5,
     borderRadius: 10,
-    borderColor: "red",
+    borderColor: colors.cian,
     elevation: 8,
 
 
   },
   modalMessage: {
     fontSize: 20,
+    fontFamily: 'open-sans',
+    color: colors.white,
   },
   modalTitle: {
     fontSize: 30,
@@ -75,14 +78,18 @@ const styles = StyleSheet.create({
     shadowRadius: 3.84,
     elevation: 5,
   },
+  textModal: {
+    fontFamily: 'open-sans',
+    color: colors.white,
+  },
   buttonModal: {
-    backgroundColor: "orange",
+    backgroundColor: colors.bluedark,
     height: 50,
     width: 150,
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 10,
-    borderColor: "purple",
+    borderColor: colors.cian,
     borderWidth: 5,
   },
 

@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
-import { View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { ComponentsFlat } from '../components/ComponentsFlat'
 import { ComponentModal } from '../components/ComponentModal'
+import colors from '../constant/colors';
 
 
-export const ScreenList = ({ itemlist, setItemList }) => {
+export const ScreenList = ({ itemlist, setItemList, setScreenNum }) => {
 
 
     const [modalVisible, setModalVisible] = useState(false);
@@ -30,9 +31,22 @@ export const ScreenList = ({ itemlist, setItemList }) => {
         setItemSelected(itemlist.filter(item => item.id === id)[0]);
         setModalVisible(!modalVisible);
     }
-    return (
-        <View>
+    const back = () => {
 
+
+        setScreenNum(1);
+
+
+    }
+    return (
+        <View style={styles.list}>
+            <TouchableOpacity
+                style={styles.volver}
+                onPress={back}
+            >
+                <Text style={styles.textList}>Volver</Text>
+
+            </TouchableOpacity>
             <ComponentsFlat itemlist={itemlist} onHandlerModal={onHandlerModal} setModalVisible={setModalVisible} />
 
             <ComponentModal
@@ -45,3 +59,25 @@ export const ScreenList = ({ itemlist, setItemList }) => {
         </View>
     )
 }
+const styles = StyleSheet.create({
+    list: {
+        paddingTop: 25,
+        alignItems: 'center',
+        justifyContent: 'center',
+
+    },
+    textList: {
+
+    },
+    volver: {
+        alignItems: "center",
+        justifyContent: "center",
+        backgroundColor: colors.blue,
+        width: 360,
+        borderRadius: 10,
+        borderColor: colors.cian,
+        borderWidth: 5,
+    },
+
+
+});

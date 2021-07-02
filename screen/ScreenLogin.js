@@ -23,8 +23,8 @@ export const ScreenLogin = ({ setScreenNum }) => {
     }
     return (
         <View>
-            <InputAdd stateLocal={user} pholder={"Usuario"} onHandlerChange={onHandlerChangeUser} />
-            <InputAdd stateLocal={pass} pholder={"Contraseña"} onHandlerChange={onHandlerChangePass} />
+            <InputAdd stateLocal={user} pholder={"Usuario = test"} onHandlerChange={onHandlerChangeUser} />
+            <InputAdd stateLocal={pass} pholder={"Contraseña = test"} onHandlerChange={onHandlerChangePass} />
 
 
             <Button onPress={login} title="login" />
