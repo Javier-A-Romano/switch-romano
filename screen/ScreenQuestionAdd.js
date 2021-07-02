@@ -67,7 +67,7 @@ export const ScreenQuestionAdd = ({ setScreenNum, setItemList, itemlist }) => {
 
                 <TouchableOpacity
                     style={styles.options}
-                    onPress={() => add("1")}
+                    onPress={() => add("2")}
                 >
                     <Text style={styles.textList}>Opcion2</Text>
 
@@ -76,7 +76,7 @@ export const ScreenQuestionAdd = ({ setScreenNum, setItemList, itemlist }) => {
 
                 <TouchableOpacity
                     style={styles.options}
-                    onPress={() => add("1")}
+                    onPress={() => add("3")}
                 >
                     <Text style={styles.textList}>Opcion3</Text>
 
