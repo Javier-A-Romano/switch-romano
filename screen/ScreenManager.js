@@ -8,7 +8,7 @@ import AppLoading from 'expo-app-loading';
 
 export const ScreenManager = () => {
 
-    const [screenNum, setScreenNum] = useState(2);
+    const [screenNum, setScreenNum] = useState(0);
     const [itemlist, setItemList] = useState([{
         "id": "0.5091013499818855",
         "option1": "6",
