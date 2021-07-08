@@ -1,19 +1,15 @@
-import { StatusBar } from 'expo-status-bar';
+import 'react-native-gesture-handler';
+
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import colors from './constant/colors';
-import { ScreenManager } from './screen/ScreenManager';
+import { NavigationContainer } from '@react-navigation/native';
+import { RouterManager } from './routers/RouterManager';
 
 
 const App = () => {
   return (
-    <View style={styles.container}>
-
-      <ScreenManager />
-
-      <StatusBar style="auto" />
-
-    </View>
+    <NavigationContainer>{<RouterManager />}</NavigationContainer>
   );
 }
 

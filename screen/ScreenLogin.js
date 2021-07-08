@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
-import { Button, View } from 'react-native'
+import { Button, StyleSheet, View } from 'react-native'
 import { InputAdd } from '../components/InputAdd'
+import colors from '../constant/colors';
 
-export const ScreenLogin = ({ setScreenNum }) => {
+export const ScreenLogin = ({ navigation }) => {
     const [user, setUser] = useState();
 
     const [pass, setPass] = useState();
@@ -14,7 +15,15 @@ export const ScreenLogin = ({ setScreenNum }) => {
 
         if (user === "test" && pass === "test") {
             console.log("login ok")
-            setScreenNum(1);
+            navigation.navigate('ScreenManager', { user: 'user' })
+        } else {
+            console.log("login error")
+            setPass("");
+            setUser("");
+        }
+        if (user === "admin" && pass === "admin") {
+            console.log("login ok")
+            navigation.navigate('ScreenManager', { user: 'admin' })
         } else {
             console.log("login error")
             setPass("");
@@ -22,7 +31,7 @@ export const ScreenLogin = ({ setScreenNum }) => {
         }
     }
     return (
-        <View>
+        <View style={styles.container}>
             <InputAdd stateLocal={user} pholder={"Usuario = test"} onHandlerChange={onHandlerChangeUser} />
             <InputAdd stateLocal={pass} pholder={"Contraseña = test"} onHandlerChange={onHandlerChangePass} />
 
@@ -31,3 +40,11 @@ export const ScreenLogin = ({ setScreenNum }) => {
         </View>
     )
 }
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: colors.bluedark,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+});

@@ -6,9 +6,11 @@ import { ScreenQuestionAdd } from './ScreenQuestionAdd';
 import { useFonts } from 'expo-font';
 import AppLoading from 'expo-app-loading';
 
-export const ScreenManager = () => {
+export const ScreenManager = ({ route, navigation }) => {
 
-    const [screenNum, setScreenNum] = useState(0);
+    const { user } = route.params;
+
+    const [screenNum, setScreenNum] = useState(user);
     const [itemlist, setItemList] = useState([{
         "id": "0.5091013499818855",
         "option1": "6",
@@ -49,17 +51,14 @@ export const ScreenManager = () => {
 
 
 
-    let screen = <ScreenLogin />
+    let screen = <ScreenList setScreenNum={setScreenNum} itemlist={itemlist} setItemList={setItemList} />
 
-    if (screenNum === 0) {
 
-        screen = <ScreenLogin setScreenNum={setScreenNum} />
-    }
-    if (screenNum === 1) {
+    if (screenNum === 'admin') {
 
         screen = <ScreenQuestionAdd setScreenNum={setScreenNum} setItemList={setItemList} itemlist={itemlist} />
     }
-    if (screenNum === 2) {
+    if (screenNum === 'user') {
 
         screen = <ScreenList setScreenNum={setScreenNum} itemlist={itemlist} setItemList={setItemList} />
     }

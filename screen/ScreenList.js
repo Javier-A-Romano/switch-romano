@@ -40,13 +40,7 @@ export const ScreenList = ({ itemlist, setItemList, setScreenNum }) => {
     }
     return (
         <View style={styles.list}>
-            <TouchableOpacity
-                style={styles.volver}
-                onPress={back}
-            >
-                <Text style={styles.textList}>Volver</Text>
 
-            </TouchableOpacity>
             <ComponentsFlat itemlist={itemlist} onHandlerModal={onHandlerModal} setModalVisible={setModalVisible} />
 
             <ComponentModal
@@ -64,6 +58,7 @@ const styles = StyleSheet.create({
         paddingTop: 25,
         alignItems: 'center',
         justifyContent: 'center',
+
 
     },
     textList: {
