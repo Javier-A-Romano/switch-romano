@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
-import { View } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 import { ScreenList } from './ScreenList';
 import { ScreenLogin } from './ScreenLogin';
 import { ScreenQuestionAdd } from './ScreenQuestionAdd';
 import { useFonts } from 'expo-font';
 import AppLoading from 'expo-app-loading';
+import colors from '../constant/colors';
 
 export const ScreenManager = ({ route, navigation }) => {
 
@@ -63,8 +64,16 @@ export const ScreenManager = ({ route, navigation }) => {
         screen = <ScreenList setScreenNum={setScreenNum} itemlist={itemlist} setItemList={setItemList} />
     }
     return (
-        <View>
+        <View style={styles.container}>
             {screen}
         </View>
     )
 }
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: colors.bluedark,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+});

@@ -42,12 +42,12 @@ export const ScreenQuestionAdd = ({ setScreenNum, setItemList, itemlist }) => {
     const next = () => {
 
 
-        setScreenNum(2);
+        setScreenNum("user");
 
 
     }
     return (
-        <View>
+        <View >
             <InputAdd stateLocal={theme} pholder={"tema a mostrar"} onHandlerChange={onHandlerChangeTheme} />
             <InputAdd stateLocal={question1} pholder={"Pregunta"} onHandlerChange={onHandlerChangeQuestion} />
 
