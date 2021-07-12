@@ -1,9 +1,11 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Button, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { InputAdd } from '../components/InputAdd'
 import colors from '../constant/colors';
+import { ContextData } from '../components/ContextData';
 
-export const ScreenQuestionAdd = ({ setScreenNum, setItemList, itemlist }) => {
+
+export const ScreenQuestionAdd = ({ setScreenNum }) => {
     const [theme, setTheme] = useState();
     const [question1, setQuestion1] = useState();
     const [option1, setOption1] = useState();
@@ -15,6 +17,8 @@ export const ScreenQuestionAdd = ({ setScreenNum, setItemList, itemlist }) => {
     const onHandlerChangeOption1 = (t) => setOption1(t);
     const onHandlerChangeOption2 = (t) => setOption2(t);
     const onHandlerChangeOption3 = (t) => setOption3(t);
+
+    const { itemlist, setItemList } = useContext(ContextData);
 
     const add = (correct) => {
 

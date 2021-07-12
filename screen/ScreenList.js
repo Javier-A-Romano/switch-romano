@@ -1,12 +1,14 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { ComponentsFlat } from '../components/ComponentsFlat'
 import { ComponentModal } from '../components/ComponentModal'
 import colors from '../constant/colors';
+import { ContextData } from '../components/ContextData';
 
 
-export const ScreenList = ({ itemlist, setItemList, setScreenNum }) => {
+export const ScreenList = ({ setScreenNum }) => {
 
+    const { itemlist, setItemList } = useContext(ContextData);
 
     const [modalVisible, setModalVisible] = useState(false);
     const [itemSelected, setItemSelected] = useState({});
