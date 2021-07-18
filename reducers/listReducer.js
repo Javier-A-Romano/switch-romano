@@ -41,7 +41,7 @@ export const listReducer = (state = initialState, action) => {
             return state.concat(action.payload);
 
         case 'delete':
-            return state.filter(todo => todo.id !== action.payload); // 123123123
+            return state.filter(todo => todo.id !== action.payload.id); // 123123123
 
 
 

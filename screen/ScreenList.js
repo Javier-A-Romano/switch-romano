@@ -3,8 +3,8 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { ComponentsFlat } from '../components/ComponentsFlat'
 import { ComponentModal } from '../components/ComponentModal'
 import colors from '../constant/colors';
-import { ContextData } from '../components/ContextData';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { deleteAction } from '../actions/listAction';
 
 
 export const ScreenList = ({ setScreenNum }) => {
@@ -13,13 +13,21 @@ export const ScreenList = ({ setScreenNum }) => {
 
     const [modalVisible, setModalVisible] = useState(false);
     const [itemSelected, setItemSelected] = useState({});
+    const dispatch = useDispatch();
+
     const onHandlerDelete = (id, pick) => {
         console.log(pick);
 
         const validate = itemSelected.correct;
         if (pick === validate) {
-            setItemList(currentItems => currentItems.filter(item => item.id !== id));
-            console.log("hello");
+
+            let addBefore = {
+                id: id
+            }
+            dispatch(deleteAction(addBefore))
+
+
+
 
             setItemSelected({});
             setModalVisible(!modalVisible);
