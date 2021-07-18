@@ -32,10 +32,13 @@ const initialState =
 
 export const listReducer = (state = initialState, action) => {
 
-    switch (action.types) {
+    switch (action.type) {
         case 'add':
+            console.log('add payload')
+            console.log(action.payload);
+            console.log('add payload')
 
-            return [...state, action.payload];
+            return state.concat(action.payload);
 
         case 'delete':
             return state.filter(todo => todo.id !== action.payload); // 123123123
@@ -43,7 +46,6 @@ export const listReducer = (state = initialState, action) => {
 
 
         default:
-            console.log(state)
             return state;
     }
 

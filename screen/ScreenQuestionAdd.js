@@ -2,7 +2,8 @@ import React, { useContext, useState } from 'react'
 import { Button, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { InputAdd } from '../components/InputAdd'
 import colors from '../constant/colors';
-import { ContextData } from '../components/ContextData';
+import { useDispatch, useSelector } from 'react-redux';
+import { addAction } from '../actions/listAction';
 
 
 export const ScreenQuestionAdd = ({ setScreenNum }) => {
@@ -18,22 +19,25 @@ export const ScreenQuestionAdd = ({ setScreenNum }) => {
     const onHandlerChangeOption2 = (t) => setOption2(t);
     const onHandlerChangeOption3 = (t) => setOption3(t);
 
-    const itemlist = useSelector(state => state.listReducer)
+    const itemlist = useSelector(state => state.list)
+    const dispatch = useDispatch();
 
     const add = (correct) => {
 
 
 
         if (theme.length >= 5 && question1.length >= 5 && option1.length >= 5 && option2.length >= 5 && option3.length >= 5) {
-            setItemList(currentItems =>
-                [...currentItems, {
-                    id: Math.random().toString(), theme: theme, question1: question1, option1: option1,
-                    option2: option2, option3: option3, correct: correct
-                }]);
+
+            let addBefore = {
+                id: Math.random().toString(), theme: theme, question1: question1, option1: option1,
+                option2: option2, option3: option3, correct: correct
+            }
+            dispatch(addAction(addBefore))
             setQuestion1("");
             setOption1("");
             setOption2("");
             setOption3("");
+            console.log('if si dispatch')
         } else {
             setQuestion1("");
             setOption1("");

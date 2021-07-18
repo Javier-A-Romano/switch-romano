@@ -1,6 +1,6 @@
 import { types } from "../types/types";
 
-export const add = (addlist) => ({
+export const addAction = (addlist) => ({
 
     type: types.add,
     payload: addlist
