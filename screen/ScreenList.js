@@ -4,11 +4,12 @@ import { ComponentsFlat } from '../components/ComponentsFlat'
 import { ComponentModal } from '../components/ComponentModal'
 import colors from '../constant/colors';
 import { ContextData } from '../components/ContextData';
+import { useSelector } from 'react-redux';
 
 
 export const ScreenList = ({ setScreenNum }) => {
 
-    const { itemlist, setItemList } = useContext(ContextData);
+    const itemlist = useSelector(state => state.list)
 
     const [modalVisible, setModalVisible] = useState(false);
     const [itemSelected, setItemSelected] = useState({});

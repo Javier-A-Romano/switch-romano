@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { Button, StyleSheet, View } from 'react-native'
 import { InputAdd } from '../components/InputAdd'
 import colors from '../constant/colors';
+import { useSelector } from 'react-redux';
+
 
 export const ScreenLogin = ({ navigation }) => {
     const [user, setUser] = useState();

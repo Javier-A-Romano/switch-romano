@@ -18,7 +18,7 @@ export const ScreenQuestionAdd = ({ setScreenNum }) => {
     const onHandlerChangeOption2 = (t) => setOption2(t);
     const onHandlerChangeOption3 = (t) => setOption3(t);
 
-    const { itemlist, setItemList } = useContext(ContextData);
+    const itemlist = useSelector(state => state.listReducer)
 
     const add = (correct) => {
 
