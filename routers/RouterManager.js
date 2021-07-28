@@ -3,6 +3,7 @@ import React from 'react';
 import colors from '../constant/colors';
 import { ScreenLogin } from '../screen/ScreenLogin';
 import { ScreenManager } from '../screen/ScreenManager';
+import { RouterTab } from './RouterTab';
 
 const Stack = createStackNavigator();
 
@@ -23,6 +24,7 @@ export const RouterManager = () => {
                 },
             }}
             />
+
         </Stack.Navigator>
     );
 }

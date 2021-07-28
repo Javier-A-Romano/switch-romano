@@ -1,13 +1,12 @@
 import 'react-native-gesture-handler';
 
-import React, { useState } from 'react';
+import React from 'react';
 import { Provider } from 'react-redux';
 import { StyleSheet, View } from 'react-native';
 import colors from './constant/colors';
 import { NavigationContainer } from '@react-navigation/native';
-import { RouterManager } from './routers/RouterManager';
-import { listReducer } from './reducers/listReducer';
 import { store } from './store/store';
+import { RouterTab } from './routers/RouterTab';
 
 
 const App = () => {
@@ -16,7 +15,7 @@ const App = () => {
   return (
 
     <Provider store={store}>
-      <NavigationContainer>{<RouterManager />}</NavigationContainer>
+      <NavigationContainer>{<RouterTab />}</NavigationContainer>
 
 
     </Provider>
